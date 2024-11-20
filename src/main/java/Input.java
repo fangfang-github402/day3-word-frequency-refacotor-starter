@@ -1,15 +1,15 @@
 public class Input {
-    private String value;
+    private String word;
     private int count;
 
     public Input(String w, int i){
-        this.value =w;
+        this.word =w;
         this.count =i;
     }
 
 
-    public String getValue() {
-        return this.value;
+    public String getWord() {
+        return this.word;
     }
 
     public int getWordCount() {
