@@ -8,18 +8,14 @@ public class WordFrequencyGame {
     public static final String CALCULATE_ERROR = "Calculate Error";
 
     public String getWordFrequency(String sentence) {
-        if (sentence.split(SPACE).length == 1) {
-            return sentence + " 1";
-        } else {
-            try {
-                List<WordFrequency> frequencies = getInitialWordFrequencies(sentence);
+        try {
+            List<WordFrequency> frequencies = getInitialWordFrequencies(sentence);
 
-                frequencies = getWordFrequencies(frequencies);
+            frequencies = getWordFrequencies(frequencies);
 
-                return joinResult(frequencies);
-            } catch (Exception e) {
-                return CALCULATE_ERROR;
-            }
+            return joinResult(frequencies);
+        } catch (Exception e) {
+            return CALCULATE_ERROR;
         }
     }
 
@@ -48,7 +44,8 @@ public class WordFrequencyGame {
 
         frequencies = wordToWordFrequenciesMap.entrySet().stream()
                 .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().size()))
-                .collect(Collectors.toList());;
+                .collect(Collectors.toList());
+        ;
 
         frequencies.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
         return frequencies;
@@ -60,7 +57,7 @@ public class WordFrequencyGame {
 
         List<WordFrequency> frequencies = new ArrayList<>();
         frequencies = Arrays.stream(words)
-                .map(word -> new WordFrequency(word,1))
+                .map(word -> new WordFrequency(word, 1))
                 .collect(Collectors.toList());
         return frequencies;
     }
