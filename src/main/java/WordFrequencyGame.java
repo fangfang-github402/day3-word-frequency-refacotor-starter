@@ -2,14 +2,10 @@ import java.util.*;
 
 public class WordFrequencyGame {
     public String getResult(String inputStr) {
-
-
         if (inputStr.split("\\s+").length == 1) {
             return inputStr + " 1";
         } else {
-
             try {
-
                 //split the input string with 1 to n pieces of spaces
                 String[] arr = inputStr.split("\\s+");
 
@@ -38,13 +34,10 @@ public class WordFrequencyGame {
                 }
                 return joiner.toString();
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
         }
     }
-
 
     private Map<String, List<Input>> getListMap(List<Input> inputList) {
         Map<String, List<Input>> map = new HashMap<>();
@@ -58,10 +51,6 @@ public class WordFrequencyGame {
                 map.get(input.getValue()).add(input);
             }
         }
-
-
         return map;
     }
-
-
 }
