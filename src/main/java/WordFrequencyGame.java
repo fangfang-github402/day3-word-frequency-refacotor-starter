@@ -10,9 +10,7 @@ public class WordFrequencyGame {
     public String getWordFrequency(String sentence) {
         try {
             List<WordFrequency> frequencies = getInitialWordFrequencies(sentence);
-
             frequencies = getWordFrequencies(frequencies);
-
             return joinResult(frequencies);
         } catch (Exception e) {
             return CALCULATE_ERROR;
