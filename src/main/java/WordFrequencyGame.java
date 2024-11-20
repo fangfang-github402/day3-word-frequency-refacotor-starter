@@ -26,10 +26,9 @@ public class WordFrequencyGame {
 
     private List<WordFrequency> getWordFrequencies(List<WordFrequency> frequencies) {
         Map<String, List<WordFrequency>> wordToWordFrequenciesMap = getListMap(frequencies);
-        frequencies = wordToWordFrequenciesMap.entrySet().stream()
+        return wordToWordFrequenciesMap.entrySet().stream()
                 .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().size()))
                 .collect(Collectors.toList());
-        return frequencies;
     }
 
     private static List<WordFrequency> getInitialWordFrequencies(String sentence) {
