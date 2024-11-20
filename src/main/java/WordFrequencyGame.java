@@ -41,7 +41,14 @@ public class WordFrequencyGame {
             WordFrequency input = new WordFrequency(entry.getKey(), entry.getValue().size());
             list.add(input);
         }
-        frequencies = list;
+
+        List<WordFrequency> tempList = wordToWordFrequenciesMap.entrySet().stream()
+                .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().size()))
+                .collect(Collectors.toList());
+
+        frequencies = wordToWordFrequenciesMap.entrySet().stream()
+                .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().size()))
+                .collect(Collectors.toList());;
 
         frequencies.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
         return frequencies;
