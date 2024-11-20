@@ -21,6 +21,7 @@ public class WordFrequencyGame {
 
     private static String joinResult(List<WordFrequency> frequencies) {
         return frequencies.stream()
+                .sorted((word, nextWord) -> Integer.compare(nextWord.getWordCount(), word.getWordCount()))
                 .map(wordFrequency -> wordFrequency.getWord()+" "+wordFrequency.getWordCount())
                 .collect(Collectors.joining(LINE_BREAK));
     }
@@ -31,7 +32,6 @@ public class WordFrequencyGame {
         frequencies = wordToWordFrequenciesMap.entrySet().stream()
                 .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().size()))
                 .collect(Collectors.toList());
-        frequencies.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
         return frequencies;
     }
 
