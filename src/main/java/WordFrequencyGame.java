@@ -20,7 +20,7 @@ public class WordFrequencyGame {
     private static String joinResult(List<WordFrequency> frequencies) {
         return frequencies.stream()
                 .sorted((word, nextWord) -> Integer.compare(nextWord.getWordCount(), word.getWordCount()))
-                .map(wordFrequency -> wordFrequency.getWord()+" "+wordFrequency.getWordCount())
+                .map(wordFrequency -> wordFrequency.getWord() + " " + wordFrequency.getWordCount())
                 .collect(Collectors.joining(LINE_BREAK));
     }
 
