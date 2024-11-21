@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 
 public class WordFrequencyGame {
 
-    public static final String SPACE = "\\s+";
+    public static final String REGEX = "\\s+";
     public static final String LINE_BREAK = "\n";
     public static final String CALCULATE_ERROR = "Calculate Error";
 
@@ -32,7 +32,7 @@ public class WordFrequencyGame {
     }
 
     private static List<WordFrequency> getInitialWordFrequencies(String sentence) {
-        String[] words = sentence.split(SPACE);
+        String[] words = sentence.split(REGEX);
         return Arrays.stream(words)
                 .map(word -> new WordFrequency(word, 1))
                 .collect(Collectors.toList());
